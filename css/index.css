@@ -49,8 +49,20 @@ li{
 #from{
     display: inline;
 }
+#caozuo{
+    text-align: center;
+}
 #caozuo>img{
     height: 20px;
     display: inline;
     margin-left: 30px;
+}
+#to{
+    display: inline;
+}
+textarea{
+    width: 485px;
+    height: 200px;
+    border-radius: 15px;
+    border: none;
 }
