@@ -46,3 +46,11 @@ li{
     padding-left: 30px;
     text-align: right;
 }
+#from{
+    display: inline;
+}
+#caozuo>img{
+    height: 20px;
+    display: inline;
+    margin-left: 30px;
+}
