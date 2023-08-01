@@ -1,0 +1,48 @@
+body{
+    background: #f2f4fb;
+    margin: 0;
+    font-size: 14px;
+    font-family: PingFang 宋体;
+}
+a{
+    cursor: pointer;
+}
+a:hover{
+    color: #98aeff;
+
+}
+select{
+    margin-left: 20px;
+    margin-top: 10px;
+    width: 120px;
+    height: 50px;
+    border: none;
+    text-align: center;
+    border-radius: 15px;
+}
+
+#nav{
+    height: 30%;
+    background: #fff;
+    width: 100%;
+    display: flex;
+    box-shadow:red;
+}
+#logo{
+    width: 20%;
+
+}
+#logo>img{
+    height: 40px;
+    margin-left: 40px;
+}
+
+#nav_list{
+    width: 78%;
+}
+li{
+    list-style: none;
+    display: inline;
+    padding-left: 30px;
+    text-align: right;
+}
