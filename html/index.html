@@ -5,14 +5,15 @@
     <title>百度翻译</title>
 </head>
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
-<script src="../api/translate.js"></script>
+<script src="../js/translate.js"></script>
+<script src="../js/md5.js"></script>
 <link href="../css/index.css" type="text/css" rel="stylesheet">
 <script>
 
 
     function make(appid, key) {
-        var appid = 'appid'
-        var key = 'key'
+        var appid = '20230712001742388  '
+        var key = 'Q2q97ZNaZNIYuRT45jo2'
         var salt = Math.ceil(Math.random() * (99999 - 9999 + 1))//随机生成随机数
         console.log(salt)
         var q = document.getElementById('from_language').value
@@ -24,7 +25,8 @@
         to = t.options[t_index].value
         console.log(q, from, to)
         var sign = appid + q + key + salt
-        alert(sign)
+        var new_sign=MD5(sign)
+        console.log(sign,new_sign)
     }
 </script>
 <body>
