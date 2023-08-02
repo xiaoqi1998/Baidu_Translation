@@ -7,33 +7,53 @@
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
 <script src="../api/translate.js"></script>
 <link href="../css/index.css" type="text/css" rel="stylesheet">
+<script>
+
+
+    function make(appid, key) {
+        var appid = 'appid'
+        var key = 'key'
+        var salt = Math.ceil(Math.random() * (99999 - 9999 + 1))//随机生成随机数
+        console.log(salt)
+        var q = document.getElementById('from_language').value
+        f = document.getElementById('from_l')
+        index = f.selectedIndex  //获取选中option的索引
+        from = f.options[index].value  //获取值
+        t = document.getElementById('to_l')
+        t_index = t.selectedIndex
+        to = t.options[t_index].value
+        console.log(q, from, to)
+        var sign = appid + q + key + salt
+        alert(sign)
+    }
+</script>
 <body>
-    <nav id="nav">
-        <div id="logo">
-            <img src="../img/logo_e835568.png">
-        </div>
-        <ul id="nav_list">
-            <li>
-                <a>文本翻译</a>
-            </li>
-            <li>
-                <a>文档翻译</a>
-            </li>
-            <li>
-                <a>人工翻译</a>
-            </li>
-            <li>
-                <a>AI同传</a>
-            </li>
-            <li>
-                <a>翻译API</a>
-            </li>
-        </ul>
-    </nav>
+<nav id="nav">
+    <div id="logo">
+        <img src="../img/logo_e835568.png">
+    </div>
+    <ul id="nav_list">
+        <li>
+            <a>文本翻译</a>
+        </li>
+        <li>
+            <a>文档翻译</a>
+        </li>
+        <li>
+            <a>人工翻译</a>
+        </li>
+        <li>
+            <a>AI同传</a>
+        </li>
+        <li>
+            <a>翻译API</a>
+        </li>
+    </ul>
+</nav>
 <div id="content">
     <div id="caozuo">
         <div id="from">
-            <select>
+            <select id="from_l">
                 <option value="auto">
                     AUTO
                 </option>
@@ -41,13 +61,13 @@
                     English
                 </option>
                 <option value="chinese">
-                   CHinese
+                    CHinese
                 </option>
             </select>
         </div>
         <img src="../img/交换.png">
         <div id="to">
-            <select>
+            <select id="to_l">
                 <option>
                     ENGLISH
                 </option>
@@ -56,10 +76,10 @@
                 </option>
             </select>
         </div>
-        <button id="do" click="">
+        <button id="do" onclick="make()">
             立即翻译
         </button>
-        
+
     </div>
     <div id="textarea">
         <textarea id="from_language" placeholder="请输入你要翻译的语言">
