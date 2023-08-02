@@ -14,19 +14,26 @@ a:hover{
 select{
     margin-left: 20px;
     margin-top: 10px;
-    width: 120px;
-    height: 50px;
+    width: 180px;
+    height: 36px;
     border: none;
     text-align: center;
     border-radius: 15px;
+    cursor: pointer;
+    outline: none;
+}
+option{
+    border:15px;
+
 }
 
 #nav{
     height: 30%;
+    padding-bottom: 10px;
     background: #fff;
     width: 100%;
     display: flex;
-    box-shadow:red;
+    box-shadow:0 0 20px 0 #9fadcb;
 }
 #logo{
     width: 20%;
@@ -56,13 +63,47 @@ li{
     height: 20px;
     display: inline;
     margin-left: 30px;
+    cursor: pointer;
 }
 #to{
     display: inline;
 }
 textarea{
+    margin: 0;
+    padding: 5px ;
     width: 485px;
     height: 200px;
     border-radius: 15px;
     border: none;
+    max-height: 200px;
+    min-height: 200px;
+    min-width: 485px;
+    max-width: 485px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    font-family: Calibri;
+}
+#textarea{
+    text-align: center;
+    margin-top: 60px;
+}
+#from_language{
+    border-radius: 15px 0 0 15px;
+
+}
+#to_language{
+    border-radius: 0 15px 15px 0;
+    background: rgba(169,173,204,.1);
+}
+#do{
+    display: inline;
+    margin-left: 40px;
+    background: #4d85ff;
+    width: 120px;
+    height: 36px;
+    border: none;
+    border-radius: 15px;
+    color: #fff;
+    cursor: pointer;
 }

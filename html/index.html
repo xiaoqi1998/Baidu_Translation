@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>百度翻译</title>
 </head>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+<script src="../api/translate.js"></script>
 <link href="../css/index.css" type="text/css" rel="stylesheet">
 <body>
     <nav id="nav">
@@ -32,13 +34,13 @@
     <div id="caozuo">
         <div id="from">
             <select>
-                <option>
+                <option value="auto">
                     AUTO
                 </option>
-                <option>
+                <option value="english">
                     English
                 </option>
-                <option>
+                <option value="chinese">
                    CHinese
                 </option>
             </select>
@@ -54,6 +56,9 @@
                 </option>
             </select>
         </div>
+        <button id="do" click="">
+            立即翻译
+        </button>
         
     </div>
     <div id="textarea">
