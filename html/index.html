@@ -11,8 +11,9 @@
 <script>
 
 
-    function make(appid, key) {
-        var appid = '20230712001742388  '
+    function make() {
+        var url = 'http://fanyi-api.baidu.com/api/trans/vip/translate'
+        var appid = '20230712001742388'
         var key = 'Q2q97ZNaZNIYuRT45jo2'
         var salt = Math.ceil(Math.random() * (99999 - 9999 + 1))//随机生成随机数
         console.log(salt)
@@ -25,8 +26,45 @@
         to = t.options[t_index].value
         console.log(q, from, to)
         var sign = appid + q + key + salt
-        var new_sign=MD5(sign)
-        console.log(sign,new_sign)
+        var new_sign = MD5(sign)
+        console.log(sign, new_sign)
+        payload = {
+            "q": q,
+            "from": from,
+            "to": to,
+            "appid": appid,
+            "salt": salt,
+            "sign": sign,
+            'datatype': 'jsonp',
+            'type': 'post'
+        }
+        $.ajax({
+            type: 'post',
+            url:url,
+            data:payload,
+            datatype: 'jsonp',
+            contentType:'application/x-www-form-urlencoded',
+            data:{
+                q:q,
+                appid:appid,
+                salt:salt,
+                from:from,
+                to:to,
+                sign:new_sign
+            },
+            success:function (data) {
+                console.log(data)
+            }
+        })
+    }
+    function chang(){
+        fl=document.getElementById('from_l')
+        index=fl.selectedIndex
+        from=fl.options[index].value
+        tl=document.getElementById('to_l')
+        t_index=tl.selectedIndex
+        to=tl.options[t_index].value
+
     }
 </script>
 <body>
@@ -67,7 +105,7 @@
                 </option>
             </select>
         </div>
-        <img src="../img/交换.png">
+        <img id="chang" onclick="chang()" src="../img/交换.png">
         <div id="to">
             <select id="to_l">
                 <option>
