@@ -8,62 +8,52 @@
 <script src="../js/translate.js"></script>
 <script src="../js/md5.js"></script>
 <link href="../css/index.css" type="text/css" rel="stylesheet">
+
 <script>
 
 
     function make() {
-        var url = 'http://fanyi-api.baidu.com/api/trans/vip/translate'
+        var url = 'https://fanyi-api.baidu.com/api/trans/vip/translate'
         var appid = '20230712001742388'
         var key = 'Q2q97ZNaZNIYuRT45jo2'
         var salt = Math.ceil(Math.random() * (99999 - 9999 + 1))//随机生成随机数
-        console.log(salt)
         var q = document.getElementById('from_language').value
+        var newq = q.replace(/\s/gi, '')
+        document.getElementById('from_language').value = newq
         f = document.getElementById('from_l')
         index = f.selectedIndex  //获取选中option的索引
         from = f.options[index].value  //获取值
         t = document.getElementById('to_l')
         t_index = t.selectedIndex
         to = t.options[t_index].value
-        console.log(q, from, to)
-        var sign = appid + q + key + salt
+        var sign = newq + key + appid + salt
         var new_sign = MD5(sign)
-        console.log(sign, new_sign)
-        payload = {
-            "q": q,
-            "from": from,
-            "to": to,
-            "appid": appid,
-            "salt": salt,
-            "sign": sign,
-            'datatype': 'jsonp',
-            'type': 'post'
-        }
+        console.log(sign, +'/n' + new_sign)
         $.ajax({
-            type: 'post',
-            url:url,
-            data:payload,
+            type: 'get',
+            url: url,
             datatype: 'jsonp',
-            contentType:'application/x-www-form-urlencoded',
-            data:{
-                q:q,
-                appid:appid,
-                salt:salt,
-                from:from,
-                to:to,
-                sign:new_sign
+            data: {
+                q: newq,
+                appid: appid,
+                salt: salt,
+                from: from,
+                to: to,
+                sign: new_sign
             },
-            success:function (data) {
+            success: function (data) {
                 console.log(data)
             }
         })
     }
-    function chang(){
-        fl=document.getElementById('from_l')
-        index=fl.selectedIndex
-        from=fl.options[index].value
-        tl=document.getElementById('to_l')
-        t_index=tl.selectedIndex
-        to=tl.options[t_index].value
+
+    function chang() {
+        fl = document.getElementById('from_l')
+        index = fl.selectedIndex
+        from = fl.options[index].value
+        tl = document.getElementById('to_l')
+        t_index = tl.selectedIndex
+        to = tl.options[t_index].value
 
     }
 </script>
@@ -97,11 +87,11 @@
                 <option value="auto">
                     AUTO
                 </option>
-                <option value="english">
+                <option value="en">
                     English
                 </option>
-                <option value="chinese">
-                    CHinese
+                <option value="zh">
+                    chinese
                 </option>
             </select>
         </div>
